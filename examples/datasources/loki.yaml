@@ -1,0 +1,14 @@
+apiVersion: k8s.kevingomez.fr/v1alpha1
+kind: Datasource
+metadata:
+  name: dark-loki
+spec:
+  loki:
+    url: "http://loki.loki.svc.cluster.local:3100"
+    derived_fields:
+      - name: TraceID
+        regex: '(?:traceID|trace_id)=(\w+)'
+        url: '${__value.raw}'
+        datasource:
+          name: dark-tempo
+          
