@@ -1,0 +1,8 @@
+apiVersion: k8s.kevingomez.fr/v1alpha1
+kind: Datasource
+metadata:
+  name: dark-stackdriver
+spec:
+  # Uses the default GCE service account for authentication.
+  stackdriver: {}
+
